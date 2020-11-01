@@ -1,0 +1,41 @@
+<html>
+<head></head>
+<body>
+    <script type="text/javascript">
+        var sock = null;
+        //var wsuri = "wss://192.168.1.20:8888/";
+        var wsuri = "wss://careworker.servehttp.com:7777/";
+
+        window.onload = function() {
+
+            console.log("onload");
+
+            sock = new WebSocket(wsuri, "test-protocol");
+
+            sock.onopen = function() {
+                console.log("connected to " + wsuri);
+            }
+
+            sock.onclose = function(e) {
+                console.log("connection closed (" + e.code + ")");
+            }
+
+            sock.onmessage = function(e) {
+                console.log("message received: " + e.data);
+            }
+        };
+
+        function send() {
+            var msg = document.getElementById('message').value;
+            sock.send(msg);
+        };
+    </script>
+    <h1>WebSocket Echo Test</h1>
+    <form>
+        <p>
+            Message: <input id="message" type="text" value="hello world!!">
+        </p>
+    </form>
+    <button onclick="send();">Send Message</button>
+</body>
+</html>

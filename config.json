@@ -1,0 +1,9 @@
+{
+  "AP_NAME": "tinyWebServer", 
+  "SERVER_IP": "0.0.0.0", 
+  "SERVER_PORT": "4000", 
+  "CLIENT_NETWORK_LIMIT": "192.168.1.0/24", 
+  "DEBUG": "0", 
+  "TOKENKEY": "1234567890",
+  "COOKIE_EXPIRE_TIME": "3600"
+}
